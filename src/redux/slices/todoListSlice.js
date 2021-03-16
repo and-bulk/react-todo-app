@@ -25,12 +25,9 @@ const TodoListSlice = createSlice({
 		},
 
 		removeTodo(state, action) {
-			state.todoList.map((item, idx) => {
-				if (item.id === action.payload) {
-					state.todoList.splice(idx, 1);
-				}
-				return state;
-			});
+			state.todoList = state.todoList.filter(
+				item => item.id !== action.payload
+			);
 		},
 
 		toggleTodo(state, action) {
