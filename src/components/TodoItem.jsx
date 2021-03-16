@@ -17,9 +17,7 @@ export default function TodoItem({ text, onChange, completed, todoID }) {
 				</p>
 			</label>
 			<Button
-				onClick={() => {
-					console.log(dispatch(removeTodo(todoID)));
-				}}
+				onClick={() => dispatch(removeTodo(todoID))}
 				style={{ marginLeft: 'auto' }}
 				variant="contained"
 				color="secondary"

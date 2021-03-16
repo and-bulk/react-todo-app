@@ -1,7 +1,6 @@
 import { List } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTodo } from '../redux/slices/todoListSlice';
-
 import TodoItem from './TodoItem';
 
 export default function TodoList() {
@@ -11,18 +10,16 @@ export default function TodoList() {
 	console.log(todoList);
 
 	return (
-		<List style={{ fontSize: '22px' }}>
-			{todoList.map(todo => {
-				return (
-					<TodoItem
-						todoID={todo.id}
-						onChange={() => dispatch(toggleTodo(todo.id))}
-						key={todo.id}
-						text={todo.task}
-						completed={todo.completed}
-					/>
-				);
-			})}
+		<List style={{ paddingTop: '20px', fontSize: '22px' }}>
+			{todoList.map(todo => (
+				<TodoItem
+					todoID={todo.id}
+					onChange={() => dispatch(toggleTodo(todo.id))}
+					key={todo.id}
+					text={todo.task}
+					completed={todo.completed}
+				/>
+			))}
 		</List>
 	);
 }
